@@ -1,14 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+
 import { FaMicrophone, FaFolder, FaSearch, FaQuestion } from "react-icons/fa";
 import { IoDocumentText } from "react-icons/io5";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<string>("record");
-  const [selectedRecording, setSelectedRecording] = useState<string | null>(null);
-  const [transcriptionData, setTranscriptionData] = useState<any | null>(null);
+  // eslint-disable  @typescript-eslint/no-explicit-any
+  const [transcriptionData] = useState<any | null>(null);
+  // eslint-disable  @typescript-eslint/no-explicit-any
   const [selectedSnimak, setSelectedSnimak] = useState<any | null>(null);
   const [showSnimakDetails, setShowSnimakDetails] = useState<boolean>(false);
 
@@ -31,7 +32,7 @@ export default function Home() {
   ];
 
   // Simuliramo uspešno otpremanje
-  const [snimci, setSnimci] = useState(mockSnimci);
+  const [snimci] = useState(mockSnimci);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -346,7 +347,7 @@ export default function Home() {
                   */}
                   
                   <div className="text-center py-8 text-gray-500">
-                    Nema dostupnog transkripta. Izaberite snimak i kliknite na "Transkribuj" da generišete transkript.
+                    {'Nema dostupnog transkripta. Izaberite snimak i kliknite na "Transkribuj" da generišete transkript.'}
                   </div>
                 </div>
               </div>
